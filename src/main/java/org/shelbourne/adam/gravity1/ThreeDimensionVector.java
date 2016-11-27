@@ -2,7 +2,7 @@ package org.shelbourne.adam.gravity1;
 
 public class ThreeDimensionVector {
 
-	private static final Double ZERO = Double.valueOf("0.0");
+	public static final Double ZERO = Double.valueOf("0.0");
 
 	private Double xAxis = ZERO;
 	private Double yAxis = ZERO;
@@ -186,6 +186,15 @@ public class ThreeDimensionVector {
 		product.setzAxis(u.getxAxis() * v.getyAxis() - u.getyAxis() * v.getxAxis());
 
 		return product;
+	}
+	
+	public ThreeDimensionVector addVertical(Double yAdjust) {
+		ThreeDimensionVector tdv = new ThreeDimensionVector();
+		tdv.setyAxis(getyAxis() + yAdjust);
+		tdv.setxAxis(getxAxis());
+		tdv.setzAxis(getzAxis());
+
+		return tdv;
 	}
 
 }
