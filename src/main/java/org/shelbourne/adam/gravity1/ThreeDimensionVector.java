@@ -144,6 +144,7 @@ public class ThreeDimensionVector {
 		tdv.setyAxis(getyAxis() * x);
 		tdv.setzAxis(getzAxis() * x);
 
+
 		return tdv;
 	}
 

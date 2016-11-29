@@ -4,6 +4,7 @@
 package org.shelbourne.adam.gravity1;
 
 import java.util.Scanner;
+import static org.shelbourne.adam.gravity1.ThreeDimensionVector.ZERO;
 
 /**
  * @author gamep_000
@@ -23,6 +24,8 @@ public class GravityScanner {
 			scannerDto.setyComponent(ask(scanner, "Enter value for y:"));
 			if (askZ) {
 				scannerDto.setzComponent(ask(scanner, "Enter value for z:"));
+			} else {
+				scannerDto.setzComponent(ZERO);
 			}
 			scannerDto.setDeltaT(ask(scanner, "Enter value for t:"));
 

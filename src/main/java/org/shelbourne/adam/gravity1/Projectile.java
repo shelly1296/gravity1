@@ -23,12 +23,12 @@ public class Projectile {
 		ThreeDimensionVector tdv = new ThreeDimensionVector(scannerDto);
 		ThreeDimensionVector tdv1 = new ThreeDimensionVector(scannerDto);
 		Double yAdjust = GRAVITATIONAL_FIELD * scannerDto.getDeltaT();
-		while (tdv1.getyAxis() > ZERO) {
+		while (tdv1.getyAxis() >= ZERO) {
 			tdv = tdv.addVertical(yAdjust);
 			tdv = tdv.scale(scannerDto.getDeltaT());
 			tdv1 = tdv1.increaseBy(tdv);
 		}
-		Double xdistance = tdv1.getxAxis();
+		Double xdistance = 2 * tdv1.getxAxis();
 		System.out.println(xdistance);
 	}
 
