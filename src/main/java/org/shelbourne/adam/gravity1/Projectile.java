@@ -27,8 +27,6 @@ public class Projectile {
 			Double yAdjust = cgf.calulateGravitationalField(tdv1.getyAxis(), tdv1.getxAxis()) * scannerDto.getDeltaT(); 
 			tdv = tdv.addVertical(yAdjust);
 		    ThreeDimensionVector tdv2 = tdv.scale(scannerDto.getDeltaT());
-		    System.out.println(tdv2.getxAxis());
-			System.out.println(tdv2.getyAxis());
 			tdv1 = tdv1.increaseBy(tdv2);
 			
 		}
