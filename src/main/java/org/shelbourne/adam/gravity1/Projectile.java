@@ -11,8 +11,6 @@ import static org.shelbourne.adam.gravity1.ThreeDimensionVector.ZERO;
  */
 public class Projectile {
 
-	private static final Double GRAVITATIONAL_FIELD = -9.81;
-
 	private ScannerDto scannerDto;
 
 	public Projectile(ScannerDto scannerDto) {
@@ -24,11 +22,11 @@ public class Projectile {
 		ThreeDimensionVector tdv = new ThreeDimensionVector(scannerDto);
 		ThreeDimensionVector tdv1 = new ThreeDimensionVector();
 		while (tdv1.getyAxis() >= ZERO) {
-			Double yAdjust = cgf.calulateGravitationalField(tdv1.getyAxis(), tdv1.getxAxis()) * scannerDto.getDeltaT(); 
+			Double yAdjust = cgf.calulateGravitationalField(tdv1.getyAxis(), tdv1.getxAxis()) * scannerDto.getDeltaT();
 			tdv = tdv.addVertical(yAdjust);
-		    ThreeDimensionVector tdv2 = tdv.scale(scannerDto.getDeltaT());
+			ThreeDimensionVector tdv2 = tdv.scale(scannerDto.getDeltaT());
 			tdv1 = tdv1.increaseBy(tdv2);
-			
+
 		}
 		Double xdistance = tdv1.getxAxis();
 		System.out.println(xdistance);

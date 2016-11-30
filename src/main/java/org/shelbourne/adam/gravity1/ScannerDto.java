@@ -2,6 +2,7 @@
  * 
  */
 package org.shelbourne.adam.gravity1;
+
 import static org.shelbourne.adam.gravity1.ThreeDimensionVector.ZERO;
 
 /**
