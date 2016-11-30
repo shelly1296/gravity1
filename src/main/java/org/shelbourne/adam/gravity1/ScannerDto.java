@@ -2,16 +2,17 @@
  * 
  */
 package org.shelbourne.adam.gravity1;
+import static org.shelbourne.adam.gravity1.ThreeDimensionVector.ZERO;
 
 /**
  * @author gamep_000
  *
  */
 public class ScannerDto {
-	Double xComponent;
-	Double yComponent;
-	Double zComponent;
-	Double deltaT;
+	Double xComponent = ZERO;
+	Double yComponent = ZERO;
+	Double zComponent = ZERO;
+	Double deltaT = ZERO;
 
 	/**
 	 * @return the xComponent

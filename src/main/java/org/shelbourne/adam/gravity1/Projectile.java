@@ -20,13 +20,17 @@ public class Projectile {
 	}
 
 	public void calculate() {
+		CalculateGravitaionalField cgf = new CalculateGravitaionalField();
 		ThreeDimensionVector tdv = new ThreeDimensionVector(scannerDto);
 		ThreeDimensionVector tdv1 = new ThreeDimensionVector(scannerDto);
-		Double yAdjust = GRAVITATIONAL_FIELD * scannerDto.getDeltaT();
-		while (tdv1.getyAxis() >= ZERO) {
+		while (tdv1.getyAxis() > ZERO) {
+			Double yAdjust = cgf.calulateGravitationalField(tdv1.getyAxis(), tdv1.getxAxis()) * scannerDto.getDeltaT(); 
 			tdv = tdv.addVertical(yAdjust);
+			System.out.println(tdv1.getxAxis());
+			System.out.println(tdv1.getyAxis());
 			tdv = tdv.scale(scannerDto.getDeltaT());
 			tdv1 = tdv1.increaseBy(tdv);
+			
 		}
 		Double xdistance = 2 * tdv1.getxAxis();
 		System.out.println(xdistance);
