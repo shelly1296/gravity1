@@ -19,12 +19,13 @@ public class GravityScanner {
 		ScannerDto scannerDto = new ScannerDto();
 		Scanner scanner = new Scanner(System.in);
 		try {
+			scannerDto.setDeltaT(ask(scanner, "Enter value for t:"));
 			scannerDto.setxComponent(ask(scanner, "Enter value for x:"));
 			scannerDto.setyComponent(ask(scanner, "Enter value for y:"));
 			if (askZ) {
 				scannerDto.setzComponent(ask(scanner, "Enter value for z:"));
 			}
-			scannerDto.setDeltaT(ask(scanner, "Enter value for t:"));
+			
 
 		} finally {
 			scanner.close();
