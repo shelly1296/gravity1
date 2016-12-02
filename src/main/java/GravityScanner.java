@@ -1,7 +1,7 @@
 /**
  * 
  */
-package org.shelbourne.adam.gravity1;
+
 
 import java.util.Scanner;
 

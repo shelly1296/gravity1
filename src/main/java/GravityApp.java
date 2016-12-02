@@ -1,5 +1,3 @@
-package org.shelbourne.adam.gravity1;
-
 /**
  * Main App for Gravity calculations.
  *

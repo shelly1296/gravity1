@@ -1,15 +1,10 @@
 /**
- * 
- */
-package org.shelbourne.adam.gravity1;
-
-import static org.shelbourne.adam.gravity1.ThreeDimensionVector.ZERO;
-
-/**
  * @author gamep_000
  *
  */
 public class ScannerDto {
+	private static final Double ZERO = Double.valueOf("0.0");
+	
 	Double xComponent = ZERO;
 	Double yComponent = ZERO;
 	Double zComponent = ZERO;

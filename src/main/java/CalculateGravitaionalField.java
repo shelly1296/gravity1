@@ -1,9 +1,4 @@
 /**
- * 
- */
-package org.shelbourne.adam.gravity1;
-
-/**
  * @author gamep_000
  *
  */

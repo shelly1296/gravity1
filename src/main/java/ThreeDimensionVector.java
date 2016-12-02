@@ -1,22 +1,21 @@
-package org.shelbourne.adam.gravity1;
-
 public class ThreeDimensionVector {
 
-	public static final Double ZERO = Double.valueOf("0.0");
+	private static final Double ZERO = Double.valueOf("0.0");
 
 	private Double xAxis = ZERO;
 	private Double yAxis = ZERO;
 	private Double zAxis = ZERO;
 
 	public ThreeDimensionVector() {
-		
+
 	}
-	
+
 	public ThreeDimensionVector(ScannerDto scannerDto) {
 		setxAxis(scannerDto.getxComponent());
 		setyAxis(scannerDto.getyComponent());
 		setzAxis(scannerDto.getzComponent());
 	}
+
 	/**
 	 * @return the xAxis
 	 */
@@ -69,6 +68,8 @@ public class ThreeDimensionVector {
 	 *
 	 * @param v
 	 *            vector to be added to original vector.
+	 * @return ThreeDimensionVector (tdv) -- a new instance of tdv that has been
+	 *         increased
 	 **/
 	public ThreeDimensionVector increaseBy(ThreeDimensionVector v) {
 		ThreeDimensionVector tdv = new ThreeDimensionVector();
@@ -86,6 +87,8 @@ public class ThreeDimensionVector {
 	 *
 	 * @param v
 	 *            vector to be subtracted from the original vector.
+	 * @return ThreeDimensionVector (tdv) -- a new instance of tdv that has been
+	 *         decreased
 	 **/
 	public ThreeDimensionVector decreaseBy(ThreeDimensionVector v) {
 		ThreeDimensionVector tdv = new ThreeDimensionVector();
@@ -98,7 +101,7 @@ public class ThreeDimensionVector {
 
 	/**
 	 * returns the magnitude of the vector. If the vector is given by x<b>i</b>
-	 * +y<<b>j</b> +z<b>k</b> then the magnitude is sqrt(x^2 + y^2+ z^2).
+	 * +y<b>j</b> +z<b>k</b> then the magnitude is sqrt(x^2 + y^2+ z^2).
 	 *
 	 * @return a scalar with the magnitude of the original vector.
 	 **/
@@ -109,8 +112,8 @@ public class ThreeDimensionVector {
 	}
 
 	/**
-	 * Standard vector scalar product. If x<b>i<\b>+y<b>j<\b>+z<b>k<\b> and
-	 * r<b>i<\b>+s<b>j<\b>+t<b>k<\b> then the dot product returns xr+ys+zt
+	 * Standard vector scalar product. If x<b>i</b>+y<b>j</b>+z<b>k</b> and
+	 * r<b>i</b>+s<b>j</b>+t<b>k</b> then the dot product returns xr+ys+zt
 	 *
 	 * @param u
 	 *            first vector in product
@@ -130,12 +133,12 @@ public class ThreeDimensionVector {
 
 	/**
 	 * Scale the components of the vector by a scalar. I.e. If the scalar is s
-	 * and the vector is x<b>i<\b>+y<b>j<\b>+z<b>k<\b> then the vector
-	 * transforms to xs<b>i<\b>+ys<b>j<\b>+zs<b>k<\b>
+	 * and the vector is x<b>i</b>+y<b>j</b>+z<b>k</b> then the vector
+	 * transforms to xs<b>i</b>+ys<b>j</b>+zs<b>k</b>
 	 *
 	 * @param x
 	 *            the factor to scale the vector by.
-	 * @return
+	 * @return ThreeDimensionVector (tdv) -- a new instance of tdv that has had the scale applied.
 	 **/
 	public ThreeDimensionVector scale(Double x) {
 		ThreeDimensionVector tdv = new ThreeDimensionVector();
@@ -143,7 +146,6 @@ public class ThreeDimensionVector {
 		tdv.setxAxis(getxAxis() * x);
 		tdv.setyAxis(getyAxis() * x);
 		tdv.setzAxis(getzAxis() * x);
-
 
 		return tdv;
 	}
@@ -188,7 +190,7 @@ public class ThreeDimensionVector {
 
 		return product;
 	}
-	
+
 	public ThreeDimensionVector addVertical(Double yAdjust) {
 		ThreeDimensionVector tdv = new ThreeDimensionVector();
 		tdv.setyAxis(getyAxis() + yAdjust);

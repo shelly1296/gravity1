@@ -1,5 +1,3 @@
-package org.shelbourne.adam.gravity1;
-
 /**
  * A 3-dimensional vector class to be used in the development of computer
  * simulations of various physical systems.
@@ -268,7 +266,7 @@ public class PhysicsVector {
 
 	/**
 	 * returns the magnitude of the vector. If the vector is given by x<b>i</b>
-	 * +y<<b>j</b> +z<b>k</b> then the magnitude is sqrt(x^2 + y^2+ z^2).
+	 * +y<b>j</b> +z<b>k</b> then the magnitude is sqrt(x^2 + y^2+ z^2).
 	 *
 	 * @return a scalar with the magnitude of the original vector.
 	 **/
@@ -328,8 +326,8 @@ public class PhysicsVector {
 
 	/**
 	 * Scale the components of the vector by a scalar. I.e. If the scalar is s
-	 * and the vector is x<b>i<\b>+y<b>j<\b>+z<b>k<\b> then the vector
-	 * transforms to xs<b>i<\b>+ys<b>j<\b>+zs<b>k<\b>
+	 * and the vector is x<b>i</b>+y<b>j</b>+z<b>k</b> then the vector
+	 * transforms to xs<b>i</b>+ys<b>j</b>+zs<b>k</b>
 	 *
 	 * @param x
 	 *            the factor to scale the vector by.
@@ -342,8 +340,8 @@ public class PhysicsVector {
 
 	/**
 	 * Scale the components of the vector by a scalar. I.e. If the scalar is s
-	 * then the vector x<b>i<\b>+y<b>j<\b>+z<b>k<\b> transfoms to
-	 * xs<b>i<\b>+ys<b>j<\b>+zs<b>k<\b>
+	 * then the vector x<b>i</b>+y<b>j</b>+z<b>k</b> transfoms to
+	 * xs<b>i</b>+ys<b>j</b>+zs<b>k</b>
 	 * 
 	 * @param x
 	 *            the factor to scale the vector by.
@@ -360,8 +358,8 @@ public class PhysicsVector {
 	}
 
 	/**
-	 * Standard vector scalar product. If x<b>i<\b>+y<b>j<\b>+z<b>k<\b> and
-	 * r<b>i<\b>+s<b>j<\b>+t<b>k<\b> then the dot product returns xr+ys+zt
+	 * Standard vector scalar product. If x<b>i</b>+y<b>j</b>+z<b>k</b> and
+	 * r<b>i</b>+s<b>j</b>+t<b>k</b> then the dot product returns xr+ys+zt
 	 *
 	 * @param u
 	 *            first vector in product
@@ -405,8 +403,8 @@ public class PhysicsVector {
 
 	/**
 	 * Standard vector addition. If the two vectors are
-	 * x<b>i<\b>+y<b>j<\b>+z<b>k<\b> and r<b>i<\b>+s<b>j<\b>+t<b>k<\b>, then the
-	 * method returns a vector (x+r)<b>i<\b>+(y+s)<b>j<\b>+(z+t)<b>k<\b>
+	 * x<b>i</b>+y<b>j</b>+z<b>k</b> and r<b>i</b>+s<b>j</b>+t<b>k</b>, then the
+	 * method returns a vector (x+r)<b>i</b>+(y+s)<b>j</b>+(z+t)<b>k</b>
 	 *
 	 * @param u
 	 *            first vector in sum
@@ -421,9 +419,9 @@ public class PhysicsVector {
 	}
 
 	/**
-	 * Vector subtraction. If the two vectors are x<b>i<\b>+y<b>j<\b>+z<b>k<\b>
-	 * and r<b>i<\b>+s<b>j<\b>+t<b>k<\b> respectively then the method returns a
-	 * vector (x-r)<b>i<\b>+(y-s)<b>j<\b>+(z-t)<b>k<\b>
+	 * Vector subtraction. If the two vectors are x<b>i</b>+y<b>j</b>+z<b>k</b>
+	 * and r<b>i</b>+s<b>j</b>+t<b>k</b> respectively then the method returns a
+	 * vector (x-r)<b>i</b>+(y-s)<b>j</b>+(z-t)<b>k</b>
 	 *
 	 * @param u
 	 *            first vector in sum

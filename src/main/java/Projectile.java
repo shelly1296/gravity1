@@ -1,16 +1,10 @@
 /**
- * 
- */
-package org.shelbourne.adam.gravity1;
-
-import static org.shelbourne.adam.gravity1.ThreeDimensionVector.ZERO;
-
-/**
  * @author gamep_000
  *
  */
 public class Projectile {
-
+	private static final Double ZERO = Double.valueOf("0.0");
+	
 	private ScannerDto scannerDto;
 
 	public Projectile(ScannerDto scannerDto) {
