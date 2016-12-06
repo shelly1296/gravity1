@@ -18,13 +18,12 @@ public class EulerCramer {
 
 	public void applyMethod() {
 		CalculateGravitaionalField cgf = new CalculateGravitaionalField();
+		PlanetObject po = new PlanetObject();
 		ThreeDimensionVector tdv = new ThreeDimensionVector(scannerDto);
 		ThreeDimensionVector tdv1 = new ThreeDimensionVector();
 		while (tdv1.getyAxis() >= ZERO) {
-			Double yAdjust = cgf.calulateGravitationalField(tdv1.getyAxis(), tdv1.getxAxis()) * scannerDto.getDeltaT();
-			tdv = tdv.addVertical(yAdjust);
-			ThreeDimensionVector tdv2 = tdv.scale(scannerDto.getDeltaT());
-			tdv1 = tdv1.increaseBy(tdv2);
+			tdv.vectorSum(tdv, po.getPlanetPosition().scale(scannerDto.getDeltaT()));
+			
 
 		}
 	}

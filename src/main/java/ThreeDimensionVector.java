@@ -138,7 +138,8 @@ public class ThreeDimensionVector {
 	 *
 	 * @param x
 	 *            the factor to scale the vector by.
-	 * @return ThreeDimensionVector (tdv) -- a new instance of tdv that has had the scale applied.
+	 * @return ThreeDimensionVector (tdv) -- a new instance of tdv that has had
+	 *         the scale applied.
 	 **/
 	public ThreeDimensionVector scale(Double x) {
 		ThreeDimensionVector tdv = new ThreeDimensionVector();
@@ -196,6 +197,15 @@ public class ThreeDimensionVector {
 		tdv.setyAxis(getyAxis() + yAdjust);
 		tdv.setxAxis(getxAxis());
 		tdv.setzAxis(getzAxis());
+
+		return tdv;
+	}
+
+	public ThreeDimensionVector vectorSum(ThreeDimensionVector v, ThreeDimensionVector u) {
+		ThreeDimensionVector tdv = new ThreeDimensionVector();
+		tdv.setxAxis(v.getxAxis() + u.getxAxis());
+		tdv.setyAxis(v.getyAxis() + u.getyAxis());
+		tdv.setzAxis(v.getzAxis() + u.getzAxis());
 
 		return tdv;
 	}

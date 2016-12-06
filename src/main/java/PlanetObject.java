@@ -34,15 +34,6 @@ public class PlanetObject {
 		return zAxis;
 	}
 
-	/**
-	 * @param xAxis
-	 *            the xAxis to set
-	 */
-	private void setxAxisP(Double xAxis) {
-	
-		planetPosition.setxAxis(scannerDto);
-	}
-
 	
 	/**
 	 * @return the planetPosition
