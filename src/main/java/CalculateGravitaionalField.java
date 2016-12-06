@@ -7,6 +7,7 @@ public class CalculateGravitaionalField {
 	private static final Double GRAVITATIONAL_CONSTANT = 6.67408E-11;
 	private static final Double EARTH_MASS = 5.974E24;
 	private static final Double EARTH_RADIUS = 6380E3;
+	private static final Double SUN_MASS = 1.988544E30;
 
 	public CalculateGravitaionalField() {
 
@@ -19,6 +20,14 @@ public class CalculateGravitaionalField {
 		Double g = -(GRAVITATIONAL_CONSTANT * EARTH_MASS) / Math.pow(radius, 2);
 
 		return g;
+	}
+	
+	public ThreeDimensionVector calculateGraviation(ThreeDimensionVector tdv) {
+		
+		Double gravityAcceleration = SUN_MASS*GRAVITATIONAL_CONSTANT/Math.pow(tdv.magnitude(), 2);
+		ThreeDimensionVector tdv2 = tdv.getUnitVector();
+		ThreeDimensionVector tdv3 = tdv2.scale(gravityAcceleration); 
+		return tdv3;
 	}
 
 }
