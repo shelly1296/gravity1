@@ -27,7 +27,7 @@ public class ThreeDimensionVector {
 	 * @param xAxis
 	 *            the xAxis to set
 	 */
-	private void setxAxis(Double xAxis) {
+	public void setxAxis(Double xAxis) {
 		this.xAxis = xAxis;
 	}
 
@@ -42,7 +42,7 @@ public class ThreeDimensionVector {
 	 * @param yAxis
 	 *            the yAxis to set
 	 */
-	private void setyAxis(Double yAxis) {
+	public void setyAxis(Double yAxis) {
 		this.yAxis = yAxis;
 	}
 

@@ -14,6 +14,11 @@ public class GravityApp {
 		Projectile projectile = new Projectile(scannerDto);
 		projectile.calculate();
 	}
+	
+	private void performMethod() {
+		EulerCramer eulerCramer = new EulerCramer();
+		eulerCramer.applyMethod();
+	}
 
 	/**
 	 * The main Method for the class and the app
@@ -23,6 +28,6 @@ public class GravityApp {
 
 	public static void main(String[] args) {
 		GravityApp ga = new GravityApp();
-		ga.performCalculate();
+		ga.performMethod();
 	}
 }

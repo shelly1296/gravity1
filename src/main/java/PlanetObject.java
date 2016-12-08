@@ -8,10 +8,23 @@
  */
 public class PlanetObject {
 
-	ThreeDimensionVector planetPosition = new ThreeDimensionVector();
-	private Double mass;
+	public ThreeDimensionVector planetPosition = new ThreeDimensionVector();
+	public ThreeDimensionVector planetVelocity = new ThreeDimensionVector();
+	public Double mass;
 	
 
+	/**
+	 * @return the planetVelocity
+	 */
+	public ThreeDimensionVector getPlanetVelocity() {
+		return planetVelocity;
+	}
+	/**
+	 * @param planetVelocity the planetVelocity to set
+	 */
+	public void setPlanetVelocity(ThreeDimensionVector planetVelocity) {
+		this.planetVelocity = planetVelocity;
+	}
 	/**
 	 * @return the xAxis
 	 */
