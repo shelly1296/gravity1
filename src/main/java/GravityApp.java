@@ -16,6 +16,13 @@ public class GravityApp {
 		}
 	}
 	
+
+	public void moveCelestialBodiesOneDay() {
+		for( CelestialBody cb : celestialBodies) {
+			// do maths to move it by one day...
+			
+		}
+	}
 	/**
 	 * Method performs the calculation for the projectile in the earths gravitaional
 	 * field
