@@ -16,9 +16,9 @@ public class CelestialBody {
 		setCurrentXPosition(planetData.getxPosition());
 		setCurrentYPosition(planetData.getyPosition());
 		setCurrentZPosition(planetData.getzPosition());
-		setCurrentXVelocity(planetData.getxVelocity());
-		setCurrentYVelocity(planetData.getyVelocity());
-		setCurrentZVelocity(planetData.getzVelocity());
+		setCurrentXVelocity(planetData.getxVelocityPerSecond());
+		setCurrentYVelocity(planetData.getyVelocityPerSecond());
+		setCurrentZVelocity(planetData.getzVelocityPerSecond());
 
 	}
 
