@@ -39,9 +39,11 @@ public enum PlanetData {
 		this.yPosition = yPos;
 		this.zPosition = zPos;
 		
-		this.xVelocity = xVelocity;
+		this.xVelocityPerSecond = xVelocity;
 		this.yVelocity = yVelocity;
 		this.zVelocity = zVelocity;
+		
+		xVelPerDay = xVelocity * 86400;
 	}
 
 	private double mass() {

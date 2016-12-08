@@ -1,9 +1,21 @@
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Main App for Gravity calculations.
  *
  */
 public class GravityApp {
 
+	List<CelestialBody> celestialBodies = new ArrayList<CelestialBody>();
+	
+	public GravityApp() {
+		for(PlanetData pd : PlanetData.values() ) {
+			CelestialBody cb = new CelestialBody(pd);
+			celestialBodies.add(cb);
+		}
+	}
+	
 	/**
 	 * Method performs the calculation for the projectile in the earths gravitaional
 	 * field
