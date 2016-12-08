@@ -8,68 +8,25 @@
  */
 public class PlanetObject {
 
-	public ThreeDimensionVector planetPosition = new ThreeDimensionVector();
-	public ThreeDimensionVector planetVelocity = new ThreeDimensionVector();
-	public Double mass;
-	
+	public enum Planet {
+		MERCURY(3.303e23, 2.4397e6),
+		VENUS (4.869e24, 6.0518e6),
+		EARTH (5.976e24, 6.37814e6),
+		MARS (6.421e23, 3.3972e6),
+		JUPITER (1.9e27, 7.1492e7),
+		SATURN (5.688e26, 6.0268e7),
+		URANUS (8.686e25, 2.5559e7),
+		NEPTUNE (1.024e26, 2.4746e7),
+		
+		private final Double mass; // in kg 
+		private final Double radius; // in m
+		Planet(Double mass, Double radius) {
+			this.mass = mass;
+			this.radius = radius;
+		}
+		
+		
+		
 
-	/**
-	 * @return the planetVelocity
-	 */
-	public ThreeDimensionVector getPlanetVelocity() {
-		return planetVelocity;
-	}
-	/**
-	 * @param planetVelocity the planetVelocity to set
-	 */
-	public void setPlanetVelocity(ThreeDimensionVector planetVelocity) {
-		this.planetVelocity = planetVelocity;
-	}
-	/**
-	 * @return the xAxis
-	 */
-	public Double getxAxisP() {
-		Double xAxis = planetPosition.getxAxis();
-		return xAxis;
-	}
-	/**
-	 * @return the xAxis
-	 */
-	public Double getyAxisP() {
-		Double yAxis = planetPosition.getyAxis();
-		return yAxis;
-	}
-	/**
-	 * @return the xAxis
-	 */
-	public Double getzAxisP() {
-		Double zAxis = planetPosition.getzAxis();
-		return zAxis;
-	}
-
-	
-	/**
-	 * @return the planetPosition
-	 */
-	public ThreeDimensionVector getPlanetPosition() {
-		return planetPosition;
-	}
-	/**
-	 * @param planetPosition the planetPosition to set
-	 */
-	public void setPlanetPosition(ThreeDimensionVector planetPosition) {
-		this.planetPosition = planetPosition;
-	}
-	/**
-	 * @return the mass
-	 */
-	public Double getMass() {
-		return mass;
-	}
-	/**
-	 * @param mass the mass to set
-	 */
-	public void setMass(Double mass) {
-		this.mass = mass;
 	}
 }

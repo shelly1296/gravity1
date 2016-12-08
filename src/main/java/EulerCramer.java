@@ -24,8 +24,8 @@ public class EulerCramer {
 		ThreeDimensionVector tdv1 = new ThreeDimensionVector();
 		tdv1.setxAxis(OrbitalSpeed);
 		for (int i = 0; i < 10000000; i++) {
-			tdv1 = tdv1.increaseBy(cgf.calculateGraviation(tdv).scale(0.01));
-			tdv = tdv.increaseBy(tdv1.scale(0.01));
+			tdv1 = tdv1.increaseBy(cgf.calculateGraviation(tdv).scale(1.0));
+			tdv = tdv.increaseBy(tdv1.scale(1.0));
 			
 		}
 	}
