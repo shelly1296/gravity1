@@ -9,14 +9,18 @@ public class CelestialBody {
 	private double currentXVelocity;
 	private double currentYVelocity;
 	private double currentZVelocity;
-	
+
 	public CelestialBody(PlanetData planetData) {
 		this.planetData = planetData;
-		
-		setCurrentXPosition(planetData.getXPosition());
+
+		setCurrentXPosition(planetData.getxPosition());
+		setCurrentYPosition(planetData.getyPosition());
+		setCurrentZPosition(planetData.getzPosition());
+		setCurrentXVelocity(planetData.getxVelocity());
+		setCurrentYVelocity(planetData.getyVelocity());
+		setCurrentZVelocity(planetData.getzVelocity());
+
 	}
-	
-	
 
 	public PlanetData getPlanetData() {
 		return planetData;
