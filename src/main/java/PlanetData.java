@@ -1,3 +1,4 @@
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.TimeZone;
@@ -21,6 +22,57 @@ public enum PlanetData {
 	NEPTUNE(1.024e+26, 2.4746e7, "1996-Dec-12 00:00:00.0000", 2.067610130974990E+09, -4.009503023417560E+09,
 			3.489846864965463E+07, 4.805993711054371E+00, 2.530645002086889E+00, -1.622101285443508E-01); //
 
+	// universal gravitational constant (m3 kg-1 s-2)
+	public static final double G = 6.67300E-11;
+
+	private final double mass; // in kilograms
+	private final double radius; // in meters
+	private final Calendar epoch; // The date and time of the planetary data.
+	
+	private final double xPosition; // in kilograms
+	private final double yPosition; // in meters
+	private final double zPosition; // in kilograms
+	
+	private final double xVelocityPerSecond; // in meters
+	private final double yVelocityPerSecond; // in kilograms
+	private final double zVelocityPerSecond; // in meters
+	
+	private final double surfaceGravity;
+
+	PlanetData(double mass, double radius, String epochDateTime, //
+			double xPos, double yPos, double zPos, //
+			double xVelocity, double yVelocity, double zVelocity) {
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss.SSSS");
+
+		this.mass = mass;
+		this.radius = radius;
+		this.epoch = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+		try {
+			this.epoch.setTime(sdf.parse(epochDateTime));
+		} catch (ParseException e) {
+			e.printStackTrace();
+			// This should not happen.
+		}
+
+		this.xPosition = xPos;
+		this.yPosition = yPos;
+		this.zPosition = zPos;
+
+		this.xVelocityPerSecond = xVelocity;
+		this.yVelocityPerSecond = yVelocity;
+		this.zVelocityPerSecond = zVelocity;
+
+		this.surfaceGravity = G * mass / (radius * radius);
+	}
+
+	public double surfaceGravity() {
+		return surfaceGravity;
+	}
+
+	public double surfaceWeight(double otherMass) {
+		return otherMass * surfaceGravity();
+	}
+	
 	/**
 	 * @return the mass
 	 */
@@ -66,91 +118,21 @@ public enum PlanetData {
 	/**
 	 * @return the xVelocity
 	 */
-	public double getxVelocity() {
-		return xVelocity;
+	public double getxVelocityPerSecond() {
+		return xVelocityPerSecond;
 	}
 
 	/**
 	 * @return the yVelocity
 	 */
-	public double getyVelocity() {
-		return yVelocity;
+	public double getyVelocityPerSecond() {
+		return yVelocityPerSecond;
 	}
 
 	/**
 	 * @return the zVelocity
 	 */
-	public double getzVelocity() {
-		return zVelocity;
-	}
-
-	/**
-	 * @return the g
-	 */
-	public static double getG() {
-		return G;
-	}
-
-	private final double mass; // in kilograms
-	private final double radius; // in meters
-	private final Calendar epoch; // The date and time of the planetary data.
-	private final double xPosition; // in kilograms
-	private final double yPosition; // in meters
-
-	private final double zPosition; // in kilograms
-	private final double xVelocity; // in meters
-
-	private final double yVelocity; // in kilograms
-	private final double zVelocity; // in meters
-
-	PlanetData(double mass, double radius, String epochDateTime, //
-			double xPos, double yPos, double zPos, //
-			double xVelocity, double yVelocity, double zVelocity) {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss.SSSS");
-
-		this.mass = mass;
-		this.radius = radius;
-		this.epoch = Calendar.getInstance(TimeZone.getTimeZone("UTC"));
-		this.epoch.setTime(sdf.parse(epochDateTime));
-
-		this.xPosition = xPos;
-		this.yPosition = yPos;
-		this.zPosition = zPos;
-
-		this.xVelocityPerSecond = xVelocity;
-		this.yVelocity = yVelocity;
-		this.zVelocity = zVelocity;
-		
-		xVelPerDay = xVelocity * 86400;
-	}
-
-	private double mass() {
-		return mass;
-	}
-
-	private double radius() {
-		return radius;
-	}
-
-	// universal gravitational constant (m3 kg-1 s-2)
-	public static final double G = 6.67300E-11;
-
-	double surfaceGravity() {
-		return G * mass / (radius * radius);
-	}
-
-	double surfaceWeight(double otherMass) {
-		return otherMass * surfaceGravity();
-	}
-
-	public static void main(String[] args) {
-		if (args.length != 1) {
-			System.err.println("Usage: java Planet <earth_weight>");
-			System.exit(-1);
-		}
-		double earthWeight = Double.parseDouble(args[0]);
-		double mass = earthWeight / EARTH.surfaceGravity();
-		for (Planet p : Planet.values())
-			System.out.printf("Your weight on %s is %f%n", p, p.surfaceWeight(mass));
+	public double getzVelocityPerSecond() {
+		return zVelocityPerSecond;
 	}
 }
