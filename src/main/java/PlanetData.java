@@ -22,74 +22,74 @@ public enum PlanetData {
 			3.489846864965463E+07, 4.805993711054371E+00, 2.530645002086889E+00, -1.622101285443508E-01); //
 
 	/**
-			 * @return the mass
-			 */
-			public double getMass() {
-				return mass;
-			}
+	 * @return the mass
+	 */
+	public double getMass() {
+		return mass;
+	}
 
-			/**
-			 * @return the radius
-			 */
-			public double getRadius() {
-				return radius;
-			}
+	/**
+	 * @return the radius
+	 */
+	public double getRadius() {
+		return radius;
+	}
 
-			/**
-			 * @return the epoch
-			 */
-			public Calendar getEpoch() {
-				return epoch;
-			}
+	/**
+	 * @return the epoch
+	 */
+	public Calendar getEpoch() {
+		return epoch;
+	}
 
-			/**
-			 * @return the xPosition
-			 */
-			public double getxPosition() {
-				return xPosition;
-			}
+	/**
+	 * @return the xPosition
+	 */
+	public double getxPosition() {
+		return xPosition;
+	}
 
-			/**
-			 * @return the yPosition
-			 */
-			public double getyPosition() {
-				return yPosition;
-			}
+	/**
+	 * @return the yPosition
+	 */
+	public double getyPosition() {
+		return yPosition;
+	}
 
-			/**
-			 * @return the zPosition
-			 */
-			public double getzPosition() {
-				return zPosition;
-			}
+	/**
+	 * @return the zPosition
+	 */
+	public double getzPosition() {
+		return zPosition;
+	}
 
-			/**
-			 * @return the xVelocity
-			 */
-			public double getxVelocity() {
-				return xVelocity;
-			}
+	/**
+	 * @return the xVelocity
+	 */
+	public double getxVelocity() {
+		return xVelocity;
+	}
 
-			/**
-			 * @return the yVelocity
-			 */
-			public double getyVelocity() {
-				return yVelocity;
-			}
+	/**
+	 * @return the yVelocity
+	 */
+	public double getyVelocity() {
+		return yVelocity;
+	}
 
-			/**
-			 * @return the zVelocity
-			 */
-			public double getzVelocity() {
-				return zVelocity;
-			}
+	/**
+	 * @return the zVelocity
+	 */
+	public double getzVelocity() {
+		return zVelocity;
+	}
 
-			/**
-			 * @return the g
-			 */
-			public static double getG() {
-				return G;
-			}
+	/**
+	 * @return the g
+	 */
+	public static double getG() {
+		return G;
+	}
 
 	private final double mass; // in kilograms
 	private final double radius; // in meters
