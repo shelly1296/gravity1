@@ -91,7 +91,9 @@ public enum PlanetData {
 	 * @return the epoch
 	 */
 	public Calendar getEpoch() {
-		return epoch;
+		Calendar retEpoch =	Calendar.getInstance(TimeZone.getTimeZone("UTC"));
+		retEpoch.setTimeInMillis(epoch.getTimeInMillis());
+		return retEpoch;
 	}
 
 	/**

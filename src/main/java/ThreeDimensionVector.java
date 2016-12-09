@@ -15,6 +15,12 @@ public class ThreeDimensionVector {
 		setyAxis(scannerDto.getyComponent());
 		setzAxis(scannerDto.getzComponent());
 	}
+	
+	public ThreeDimensionVector(Double x, Double y, Double z) {
+		setxAxis(x);
+		setyAxis(y);
+		setzAxis(z);
+	}
 
 	/**
 	 * @return the xAxis

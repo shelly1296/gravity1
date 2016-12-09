@@ -1,3 +1,7 @@
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.TimeZone;
 
 public class CelestialBody {
 	private PlanetData planetData;
@@ -9,6 +13,8 @@ public class CelestialBody {
 	private double currentXVelocity;
 	private double currentYVelocity;
 	private double currentZVelocity;
+	
+	private final Calendar epoch;
 
 	public CelestialBody(PlanetData planetData) {
 		this.planetData = planetData;
@@ -16,9 +22,12 @@ public class CelestialBody {
 		setCurrentXPosition(planetData.getxPosition());
 		setCurrentYPosition(planetData.getyPosition());
 		setCurrentZPosition(planetData.getzPosition());
+		
 		setCurrentXVelocity(planetData.getxVelocityPerSecond());
 		setCurrentYVelocity(planetData.getyVelocityPerSecond());
 		setCurrentZVelocity(planetData.getzVelocityPerSecond());
+				
+		this.epoch = planetData.getEpoch();
 
 	}
 
@@ -76,6 +85,16 @@ public class CelestialBody {
 
 	public void setCurrentZVelocity(double currentZVelocity) {
 		this.currentZVelocity = currentZVelocity;
+	}
+	
+	public ThreeDimensionVector setPositionVector() {
+		ThreeDimensionVector positionTdv = new ThreeDimensionVector(getCurrentXPosition(), getCurrentYPosition(), getCurrentZPosition());
+		return positionTdv;
+	}
+	
+	public ThreeDimensionVector setVelocityVector() {
+		ThreeDimensionVector velocityTdv = new ThreeDimensionVector(getCurrentXVelocity(), getCurrentYVelocity(), getCurrentZVelocity());
+		return velocityTdv;
 	}
 
 }
