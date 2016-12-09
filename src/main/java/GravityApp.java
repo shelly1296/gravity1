@@ -23,12 +23,12 @@ public class GravityApp {
 		CalculateGravitaionalField cfg = new CalculateGravitaionalField();
 		for( CelestialBody cb : celestialBodies) {
 			// do maths to move it by one day...
-			ThreeDimensionVector tdv = cb.setPositionVector();
-			ThreeDimensionVector tdv1 = cb.setVelocityVector();
-			ThreeDimensionVector gravity = cfg.calculateGraviation(tdv);
-			tdv1 = tdv1.increaseBy(gravity.scale(DAY));
-			tdv = tdv.increaseBy(tdv1.scale(DAY));
-			System.out.println("(" + tdv.getxAxis() + ", " + tdv.getyAxis() + ", " + tdv.getzAxis() + ")");
+			ThreeDimensionVector positionTdv = cb.getPositionVector();
+			ThreeDimensionVector velocityTdv = cb.getVelocityVector();
+			ThreeDimensionVector gravity = cfg.calculateGraviation(positionTdv);
+			velocityTdv = velocityTdv.increaseBy(gravity.scale(DAY));
+			positionTdv = positionTdv.increaseBy(velocityTdv.scale(DAY));
+			System.out.println("(" + positionTdv.getxAxis() + ", " + positionTdv.getyAxis() + ", " + positionTdv.getzAxis() + ")");
 		}
 	}
 	
@@ -36,8 +36,8 @@ public class GravityApp {
 		EulerCramer ec = new EulerCramer();
 		for( CelestialBody cb : celestialBodies) {
 			// do maths to move it by one day...
-			ThreeDimensionVector tdv = cb.setPositionVector();
-			ThreeDimensionVector tdv1 = cb.setVelocityVector();
+			ThreeDimensionVector tdv = cb.getPositionVector();
+			ThreeDimensionVector tdv1 = cb.getVelocityVector();
 			ec.applyMethodSolarSystem(tdv, tdv1, YEAR);
 		}
 	}

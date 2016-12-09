@@ -87,12 +87,12 @@ public class CelestialBody {
 		this.currentZVelocity = currentZVelocity;
 	}
 	
-	public ThreeDimensionVector setPositionVector() {
+	public ThreeDimensionVector getPositionVector() {
 		ThreeDimensionVector positionTdv = new ThreeDimensionVector(getCurrentXPosition(), getCurrentYPosition(), getCurrentZPosition());
 		return positionTdv;
 	}
 	
-	public ThreeDimensionVector setVelocityVector() {
+	public ThreeDimensionVector getVelocityVector() {
 		ThreeDimensionVector velocityTdv = new ThreeDimensionVector(getCurrentXVelocity(), getCurrentYVelocity(), getCurrentZVelocity());
 		return velocityTdv;
 	}
