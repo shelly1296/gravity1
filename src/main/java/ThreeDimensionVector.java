@@ -147,7 +147,7 @@ public class ThreeDimensionVector {
 	 * @return ThreeDimensionVector (tdv) -- a new instance of tdv that has had
 	 *         the scale applied.
 	 **/
-	public ThreeDimensionVector scale(Double x) {
+	public ThreeDimensionVector scale(Long x) {
 		ThreeDimensionVector tdv = new ThreeDimensionVector();
 
 		tdv.setxAxis(getxAxis() * x);

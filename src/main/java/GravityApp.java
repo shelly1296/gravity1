@@ -6,8 +6,9 @@ import java.util.List;
  *
  */
 public class GravityApp {
-	private static final Double DAY = 60.0 * 60.0 * 24.0;
-	private static final Double YEAR = DAY * 365;
+	private static final Long DAY = 60L * 60L * 24L;
+	private static final Long YEAR = DAY * 365L;
+	private static final Long ONE_JAVA_DAY = DAY * 1000L;
 
 	List<CelestialBody> celestialBodies = new ArrayList<>();
 	List<PlanetDataWriter> writers = new ArrayList<>();
@@ -17,6 +18,9 @@ public class GravityApp {
 			CelestialBody cb = new CelestialBody(pd);
 			celestialBodies.add(cb);
 		}
+		
+		PlanetDataWriter pdw = new TimePeriodPlanetDataWriter(ONE_JAVA_DAY, "./day_tdv.csv");
+		writers.add(pdw);
 	}
 
 	public void moveCelestialBodiesOneDay() {
