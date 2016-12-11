@@ -18,7 +18,7 @@ public class GravityApp {
 			CelestialBody cb = new CelestialBody(pd);
 			celestialBodies.add(cb);
 		}
-		
+
 		PlanetDataWriter pdw = new TimePeriodPlanetDataWriter(ONE_JAVA_DAY, "./day_tdv.csv");
 		writers.add(pdw);
 	}
@@ -30,8 +30,8 @@ public class GravityApp {
 			ThreeDimensionVector positionTdv = cb.getPositionVector();
 			ThreeDimensionVector velocityTdv = cb.getVelocityVector();
 			ThreeDimensionVector gravity = cfg.calculateGraviation(positionTdv);
-			velocityTdv = velocityTdv.increaseBy(gravity.scale(DAY));
-			positionTdv = positionTdv.increaseBy(velocityTdv.scale(DAY));
+			velocityTdv = velocityTdv.increaseBy(gravity.scale(DAY.doubleValue()));
+			positionTdv = positionTdv.increaseBy(velocityTdv.scale(DAY.doubleValue()));
 			System.out.println(
 					"(" + positionTdv.getxAxis() + ", " + positionTdv.getyAxis() + ", " + positionTdv.getzAxis() + ")");
 		}
@@ -39,15 +39,16 @@ public class GravityApp {
 
 	public void moveCelestialBodiesOneYear() {
 		EulerCramer ec = new EulerCramer();
-		for (CelestialBody cb : celestialBodies) {
-			// do maths to move it by one day...
-			ThreeDimensionVector tdv = cb.getPositionVector();
-			ThreeDimensionVector tdv1 = cb.getVelocityVector();
-			ec.applyMethodSolarSystem(tdv, tdv1, YEAR);
+		for (Long i = 0L; i < YEAR; i++) {
+			for (CelestialBody cb : celestialBodies) {
+				// do maths to move it by one day...
+				ec.applyMethodSolarSystem(cb);
+			}
 		}
 	}
 
 	private void printResults(CelestialBody cb) {
+
 		for (PlanetDataWriter pdw : writers) {
 			pdw.print(cb);
 		}

@@ -30,15 +30,13 @@ public class EulerCramer {
 		}
 	}
 
-	public void applyMethodSolarSystem(CelestialBody cb, Long x) {
+	public void applyMethodSolarSystem(CelestialBody cb) {
 		CalculateGravitaionalField cgf = new CalculateGravitaionalField();
 		ThreeDimensionVector positionTdv = cb.getPositionVector();
 		ThreeDimensionVector velocityTdv = cb.getVelocityVector();
-		for (Long i = 0L; i < x; i++) {
-			velocityTdv.increaseBy(cgf.calculateGraviation(positionTdv).scale(1.0));
-			positionTdv.increaseBy(velocityTdv.scale(1.0));
-	
-		}
+
+		velocityTdv.increaseBy(cgf.calculateGraviation(positionTdv).scale(1.0));
+		positionTdv.increaseBy(velocityTdv.scale(1.0));
 		cb.setPositionVector(positionTdv);
 		cb.setVelocityVector(velocityTdv);
 	}
