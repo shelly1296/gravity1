@@ -1,7 +1,4 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.TimeZone;
 
 public class CelestialBody {
 	private PlanetData planetData;
@@ -14,7 +11,7 @@ public class CelestialBody {
 	private double currentYVelocity;
 	private double currentZVelocity;
 	
-	private final Calendar epoch;
+	private Calendar currentTime;
 
 	public CelestialBody(PlanetData planetData) {
 		this.planetData = planetData;
@@ -27,12 +24,20 @@ public class CelestialBody {
 		setCurrentYVelocity(planetData.getyVelocityPerSecond());
 		setCurrentZVelocity(planetData.getzVelocityPerSecond());
 				
-		this.epoch = planetData.getEpoch();
+		this.setCurrentTime(planetData.getEpoch());
 
 	}
 
 	public PlanetData getPlanetData() {
 		return planetData;
+	}
+
+	public Calendar getCurrentTime() {
+		return currentTime;
+	}
+
+	public void setCurrentTime(Calendar currentTime) {
+		this.currentTime = currentTime;
 	}
 
 	public void setPlanetData(PlanetData planetData) {
