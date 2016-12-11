@@ -96,5 +96,17 @@ public class CelestialBody {
 		ThreeDimensionVector velocityTdv = new ThreeDimensionVector(getCurrentXVelocity(), getCurrentYVelocity(), getCurrentZVelocity());
 		return velocityTdv;
 	}
+	
+	public void setPositionVector(ThreeDimensionVector tdv) {
+		setCurrentXPosition(tdv.getxAxis());
+		setCurrentYPosition(tdv.getyAxis());
+		setCurrentZPosition(tdv.getzAxis());
+	}
+	
+	public void setVelocityVector(ThreeDimensionVector tdv) {
+		setCurrentXVelocity(tdv.getxAxis());
+		setCurrentYVelocity(tdv.getyAxis());
+		setCurrentZVelocity(tdv.getzAxis());
+	}
 
 }

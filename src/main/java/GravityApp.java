@@ -6,8 +6,8 @@ import java.util.List;
  *
  */
 public class GravityApp {
-	private static final Double DAY = 60.0 * 60.0 * 24.0;
-	private static final Double YEAR = DAY * 365;
+	private static final Long DAY = 60L * 60L * 24L;
+	private static final Long YEAR = DAY * 365L;
 
 	List<CelestialBody> celestialBodies = new ArrayList<>();
 	List<PlanetDataWriter> writers = new ArrayList<>();
@@ -37,9 +37,10 @@ public class GravityApp {
 		EulerCramer ec = new EulerCramer();
 		for (CelestialBody cb : celestialBodies) {
 			// do maths to move it by one day...
-			ThreeDimensionVector tdv = cb.getPositionVector();
-			ThreeDimensionVector tdv1 = cb.getVelocityVector();
-			ec.applyMethodSolarSystem(tdv, tdv1, YEAR);
+			
+			ec.applyMethodSolarSystem(cb, YEAR);
+			// put tdv back into the celestial body
+			printResults(cb);
 		}
 	}
 

@@ -15,7 +15,7 @@ public class ThreeDimensionVector {
 		setyAxis(scannerDto.getyComponent());
 		setzAxis(scannerDto.getzComponent());
 	}
-	
+
 	public ThreeDimensionVector(Double x, Double y, Double z) {
 		setxAxis(x);
 		setyAxis(y);
@@ -74,16 +74,16 @@ public class ThreeDimensionVector {
 	 *
 	 * @param v
 	 *            vector to be added to original vector.
-	 * @return ThreeDimensionVector (tdv) -- a new instance of tdv that has been
+	 * @return ThreeDimensionVector (tdv) -- this instance of tdv that has been
 	 *         increased
 	 **/
 	public ThreeDimensionVector increaseBy(ThreeDimensionVector v) {
-		ThreeDimensionVector tdv = new ThreeDimensionVector();
-		tdv.setxAxis(getxAxis() + v.getxAxis());
-		tdv.setyAxis(getyAxis() + v.getyAxis());
-		tdv.setzAxis(getzAxis() + v.getzAxis());
 
-		return tdv;
+		setxAxis(getxAxis() + v.getxAxis());
+		setyAxis(getyAxis() + v.getyAxis());
+		setzAxis(getzAxis() + v.getzAxis());
+
+		return this;
 	}
 
 	/**
@@ -93,16 +93,15 @@ public class ThreeDimensionVector {
 	 *
 	 * @param v
 	 *            vector to be subtracted from the original vector.
-	 * @return ThreeDimensionVector (tdv) -- a new instance of tdv that has been
+	 * @return ThreeDimensionVector (tdv) -- this instance of tdv that has been
 	 *         decreased
 	 **/
 	public ThreeDimensionVector decreaseBy(ThreeDimensionVector v) {
-		ThreeDimensionVector tdv = new ThreeDimensionVector();
-		tdv.setxAxis(getxAxis() - v.getxAxis());
-		tdv.setyAxis(getyAxis() - v.getyAxis());
-		tdv.setzAxis(getzAxis() - v.getzAxis());
+		setxAxis(getxAxis() - v.getxAxis());
+		setyAxis(getyAxis() - v.getyAxis());
+		setzAxis(getzAxis() - v.getzAxis());
 
-		return tdv;
+		return this;
 	}
 
 	/**
@@ -148,13 +147,11 @@ public class ThreeDimensionVector {
 	 *         the scale applied.
 	 **/
 	public ThreeDimensionVector scale(Double x) {
-		ThreeDimensionVector tdv = new ThreeDimensionVector();
+		setxAxis(getxAxis() * x);
+		setyAxis(getyAxis() * x);
+		setzAxis(getzAxis() * x);
 
-		tdv.setxAxis(getxAxis() * x);
-		tdv.setyAxis(getyAxis() * x);
-		tdv.setzAxis(getzAxis() * x);
-
-		return tdv;
+		return this;
 	}
 
 	/**
