@@ -1,5 +1,6 @@
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 public class CelestialBody {
 	private PlanetData planetData;
@@ -34,7 +35,10 @@ public class CelestialBody {
 	}
 
 	public Calendar getCurrentTime() {
-		return currentTime;
+		Calendar retCal =Calendar.getInstance();
+		retCal.setTimeZone(TimeZone.getTimeZone("UTC"));
+		retCal.setTimeInMillis(currentTime.getTimeInMillis());
+		return retCal;
 	}
 
 	public void setCurrentTime(Calendar currentTime) {
@@ -113,6 +117,10 @@ public class CelestialBody {
 		setCurrentXVelocity(tdv.getxAxis());
 		setCurrentYVelocity(tdv.getyAxis());
 		setCurrentZVelocity(tdv.getzAxis());
+	}
+	
+	public void increaseCurrentTime(int milliseconds) {
+		currentTime.add(Calendar.MILLISECOND, milliseconds);
 	}
 	
 	public String toString() {

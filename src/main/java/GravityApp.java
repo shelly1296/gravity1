@@ -50,6 +50,7 @@ public class GravityApp {
 			for (CelestialBody cb : celestialBodies) {
 				// do maths to move it by one day...
 				ec.applyMethodSolarSystem(cb);
+				printResults(cb);
 			}
 		}
 	}
@@ -89,6 +90,7 @@ public class GravityApp {
 
 	public static void main(String[] args) {
 		GravityApp ga = new GravityApp();
-		ga.performMethod();
+		//ga.performMethod();
+		ga.moveCelestialBodiesOneYear();
 	}
 }

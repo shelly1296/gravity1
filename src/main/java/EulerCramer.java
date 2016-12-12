@@ -12,6 +12,7 @@ public class EulerCramer {
 	private static final Double AU = 1.49597870700E12;
 	private static final Double ORBITAL_SPEED = 2.978589E4;
 	private static final Double HOUR = 60.0 * 60.0;
+	private static final Integer ONE_JAVA_DAY = 1000 * 60 * 60 * 24;
 
 	public EulerCramer() {
 
@@ -39,5 +40,6 @@ public class EulerCramer {
 		positionTdv.increaseBy(velocityTdv.scale(1.0));
 		cb.setPositionVector(positionTdv);
 		cb.setVelocityVector(velocityTdv);
+		cb.increaseCurrentTime(ONE_JAVA_DAY);
 	}
 }
