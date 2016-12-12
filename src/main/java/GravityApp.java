@@ -19,8 +19,11 @@ public class GravityApp {
 			celestialBodies.add(cb);
 		}
 
-		PlanetDataWriter pdw = new TimePeriodPlanetDataWriter(ONE_JAVA_DAY, "./day_tdv.csv");
-		writers.add(pdw);
+		PlanetDataWriter tpPdw = new TimePeriodPlanetDataWriter(ONE_JAVA_DAY, "./day_tdv.csv");
+		PlanetDataWriter cPdw = new ConsolePlanetDataWriter(); 
+
+		writers.add(tpPdw);
+		writers.add(cPdw);
 	}
 
 	public void moveCelestialBodiesOneDay() {
@@ -30,10 +33,14 @@ public class GravityApp {
 			ThreeDimensionVector positionTdv = cb.getPositionVector();
 			ThreeDimensionVector velocityTdv = cb.getVelocityVector();
 			ThreeDimensionVector gravity = cfg.calculateGraviation(positionTdv);
-			velocityTdv = velocityTdv.increaseBy(gravity.scale(DAY.doubleValue()));
-			positionTdv = positionTdv.increaseBy(velocityTdv.scale(DAY.doubleValue()));
-			System.out.println(
-					"(" + positionTdv.getxAxis() + ", " + positionTdv.getyAxis() + ", " + positionTdv.getzAxis() + ")");
+			
+			velocityTdv.increaseBy(gravity.scale(DAY.doubleValue()));
+			positionTdv.increaseBy(velocityTdv.scale(DAY.doubleValue()));
+
+			cb.setPositionVector(positionTdv);
+			cb.setVelocityVector(velocityTdv);
+			
+			printResults(cb);
 		}
 	}
 

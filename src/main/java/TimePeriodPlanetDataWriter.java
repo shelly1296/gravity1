@@ -49,30 +49,10 @@ public class TimePeriodPlanetDataWriter implements PlanetDataWriter {
 	}
 
 	private byte[] createCelestialBodyLine(CelestialBody cb) throws UnsupportedEncodingException {
-		StringBuilder sb = new StringBuilder();
-		sb.append(cb.getPlanetData().name()).append(",");
-		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss");
-		
-		sb.append(sdf.format(cb.getCurrentTime().getTime())).append(",");
-		
-		sb.append(format(cb.getCurrentXPosition())).append(",");
-		sb.append(format(cb.getCurrentXPosition())).append(",");
-		sb.append(format(cb.getCurrentXPosition())).append(",");
-		
-		sb.append(format(cb.getCurrentXPosition())).append(",");
-		sb.append(format(cb.getCurrentXPosition())).append(",");
-		sb.append(format(cb.getCurrentXPosition())).append("\n");
-		
-		return sb.toString().getBytes("UTF8");
+		String retStr = cb.toString() + "\n";
+		return retStr.getBytes("UTF8");
 	}
-	
-	private String format(Double doubleValue) {
-		String retStr = doubleValue.toString();
 		
-		return retStr;
-	}
-	
 	private Path getFilePath() {
 		Path filePath = Paths.get(filename);
 		if (!Files.exists(filePath)) {

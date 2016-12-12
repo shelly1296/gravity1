@@ -1,3 +1,4 @@
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class CelestialBody {
@@ -113,5 +114,31 @@ public class CelestialBody {
 		setCurrentYVelocity(tdv.getyAxis());
 		setCurrentZVelocity(tdv.getzAxis());
 	}
+	
+	public String toString() {
+		StringBuilder sb = new StringBuilder();
+		sb.append(getPlanetData().name()).append(",");
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MMM-dd HH:mm:ss");
+		
+		sb.append(sdf.format(getCurrentTime().getTime())).append(",");
+		
+		sb.append(format(getCurrentXPosition())).append(",");
+		sb.append(format(getCurrentXPosition())).append(",");
+		sb.append(format(getCurrentXPosition())).append(",");
+		
+		sb.append(format(getCurrentXPosition())).append(",");
+		sb.append(format(getCurrentXPosition())).append(",");
+		sb.append(format(getCurrentXPosition()));
+		
+		return sb.toString();
+	}
+	
+	private String format(Double doubleValue) {
+		String retStr = doubleValue.toString();
+		
+		return retStr;
+	}
+	
 
 }
