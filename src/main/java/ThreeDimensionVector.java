@@ -164,9 +164,14 @@ public class ThreeDimensionVector {
 	public ThreeDimensionVector getUnitVector() {
 		ThreeDimensionVector unit;
 		Double magnitude = magnitude();
+		unit = new ThreeDimensionVector();
 
 		if (Math.abs(magnitude) > 1.e-34) {
-			unit = scale(1 / magnitude);
+			Double oom = (1 / magnitude);
+			unit.setxAxis(getxAxis() * oom);
+			unit.setyAxis(getyAxis() * oom);
+			unit.setzAxis(getzAxis() * oom);
+			
 		} else {
 			unit = new ThreeDimensionVector();
 		}
@@ -210,6 +215,16 @@ public class ThreeDimensionVector {
 		tdv.setyAxis(v.getyAxis() + u.getyAxis());
 		tdv.setzAxis(v.getzAxis() + u.getzAxis());
 
+		return tdv;
+	}
+	
+	public ThreeDimensionVector setVector(ThreeDimensionVector v) {
+		ThreeDimensionVector tdv = new ThreeDimensionVector();
+		
+		tdv.setxAxis(v.getxAxis());
+		tdv.setyAxis(v.getyAxis());
+		tdv.setzAxis(v.getzAxis());
+		
 		return tdv;
 	}
 

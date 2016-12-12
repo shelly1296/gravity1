@@ -36,8 +36,8 @@ public class EulerCramer {
 		ThreeDimensionVector positionTdv = cb.getPositionVector();
 		ThreeDimensionVector velocityTdv = cb.getVelocityVector();
 
-		velocityTdv.increaseBy(cgf.calculateGraviation(positionTdv).scale(1.0));
-		positionTdv.increaseBy(velocityTdv.scale(1.0));
+		velocityTdv.increaseBy(cgf.calculateGraviation(positionTdv));
+		positionTdv.increaseBy(velocityTdv);
 		cb.setPositionVector(positionTdv);
 		cb.setVelocityVector(velocityTdv);
 		cb.increaseCurrentTime(ONE_JAVA_DAY);

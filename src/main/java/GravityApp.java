@@ -46,12 +46,16 @@ public class GravityApp {
 
 	public void moveCelestialBodiesOneYear() {
 		EulerCramer ec = new EulerCramer();
-		for (Long i = 0L; i < YEAR; i++) {
+		for (Long i = 0L; i < DAY; i++) {
 			for (CelestialBody cb : celestialBodies) {
 				// do maths to move it by one day...
 				ec.applyMethodSolarSystem(cb);
-				printResults(cb);
+				ThreeDimensionVector tdv = new ThreeDimensionVector();
+				tdv.setVector(cb.getPositionVector());
+		 System.out.println("(" + tdv.getxAxis() + "," + tdv.getyAxis() + "," + tdv.getzAxis() + ")");
+		 printResults(cb);
 			}
+			
 		}
 	}
 

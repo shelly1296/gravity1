@@ -21,13 +21,16 @@ public class CalculateGravitaionalField {
 
 		return g;
 	}
-	
+
 	public ThreeDimensionVector calculateGraviation(ThreeDimensionVector tdv) {
+
+		double gravityAcceleration = (SUN_MASS * GRAVITATIONAL_CONSTANT / Math.pow(tdv.magnitude(), 2));
 		
-		Double gravityAcceleration = SUN_MASS*GRAVITATIONAL_CONSTANT/Math.pow(tdv.magnitude(), 2);
-		ThreeDimensionVector tdv2 = tdv.getUnitVector();
-		ThreeDimensionVector tdv3 = tdv2.scale(gravityAcceleration); 
-		System.out.println("(" + tdv3.getxAxis() + "," + tdv3.getyAxis() + ")");
+		ThreeDimensionVector tdv2 
+		= tdv.getUnitVector(); 
+		ThreeDimensionVector tdv3 = tdv2.scale(gravityAcceleration);
+		// System.out.println("(" + tdv3.getxAxis() + "," + tdv3.getyAxis() +
+		// ")");
 		return tdv3;
 	}
 
